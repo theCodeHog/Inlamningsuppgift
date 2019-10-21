@@ -1,0 +1,10 @@
+Potion of Fear;Get rid of all your fears for 24 hours. WARNING: Use carefully. Side effects include accidental death. Provide proof of psychological wellbeing upon purchase.;50000
+Mystery Potion;A random brew for the prankster. List of possible effects included. Mix with 100 ml of water. DURATION: 5 minutes.;150
+Llama potion;Turn someone into a llama. DO NOT USE ON PEOPLE WHO PRODUCE OVER 2 LITERS OF SALIVA PER DAY, as they might never transform back to their human form.;7000
+Potion of Flight;Become light as a feather for 6 hours. Recommended for indoor use, but when outside remember to avoid air traffic. DO NOT PASS THE OZONE LAYER.;10000
+Fish Frenzy;Turn into a clownfish for 1 hour. DO NOT USE ON LAND OR IN CHLORINE WATER.;700
+Potion of Love;Make someone fall madly in love with you. Works on animals too. DURATION: 48 hours.;3000
+Mana Potion: Peach;Restore your spell casting ability with this fruity drink. Best used at night before going to sleep.;50
+Mana Potion: Chicken;Restore your spell casting ability with this meaty drink. Best used at night before going to sleep.;50
+Sinus Cleanser;One tablespoon in the morning and the evening for 3 days. WARNING: Overdose can cause cinnamon to gather in your sinuses.;600
+Potion of Rain;Throw at desired location for a 20 min downpour. Affected area: 1 square meter. Often used for showering at remote locations.;99
