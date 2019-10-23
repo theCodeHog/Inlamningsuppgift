@@ -54,16 +54,4 @@ public class FileUtils {
         }
     }
 
-    public static int askUserToEnterInteger(){
-        int userInt;
-        while (true){
-            try{
-                return userInt = Integer.parseInt(scanner.nextLine());
-            }
-            catch (Exception e){
-                System.out.println("Incorrect input. Please enter an integer.");
-            }
-        }
-    }
-
 }

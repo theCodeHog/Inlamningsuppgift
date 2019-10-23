@@ -12,7 +12,6 @@ public class Potion extends ItemForSale implements Comparable<Potion> {
 
     //FIELDS
     private static SortBy sortBy = SortBy.NAME;
-    ArrayList<Question> questions;
 
     //CONSTRUCTOR
     Potion(String name, String description, double price) {

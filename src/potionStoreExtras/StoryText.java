@@ -2,10 +2,8 @@ package potionStoreExtras;
 
 import com.company.View;
 
-public class PotionStoreAdventure {
+public class StoryText {
 
-    String userChoice;
-    boolean isCorrectInput = false;
     String userStatus; //TODO
     String name;
 
@@ -18,23 +16,9 @@ public class PotionStoreAdventure {
                 "It just doesn't look that interesting. Actually, you'd even call it old. Aged. Probably dirty, with\n" +
                 "nothing of actual value to sell you. And yet, as you're standing on the opposite side of the road\n" +
                 "with some unexpected extra time on your hands, you find yourself... oddly curious.");
-        System.out.println();
-        System.out.println("As you walk over to peer through the small windows, you see nothing but dusty bottles of \n" +
+        System.out.println("\nAs you walk over to peer through the small windows, you see nothing but dusty bottles of \n" +
                 "various sizes and large drapes of colorful cloth. As disregarded as the shop window seems, the door \n" +
-                "beside it is quite opposite. It's strangely clean, with a bright neonlight sign that says: \"Enter\". \n" +
-                "\nDo you 1) enter, or do you 2) walk away?");
-        while (!isCorrectInput) {
-            userChoice = View.getInstance().getUserDecision();
-            if ((userChoice.equalsIgnoreCase("1")) || (userChoice.equalsIgnoreCase("enter"))) {
-                enterStore();
-                isCorrectInput = true;
-            } else if ((userChoice.equalsIgnoreCase("2")) || (userChoice.equalsIgnoreCase("walk away"))) {
-                doNotEnterStore();
-                isCorrectInput = true;
-            } else {
-                System.out.println("Incorrect input. Try pressing 1 or 2.");
-            }
-        }
+                "beside it is quite opposite. It's strangely clean, with a bright neonlight sign that says: \"Enter\". \n");
     }
 
     public void enterStore() {
@@ -44,27 +28,13 @@ public class PotionStoreAdventure {
                 "cash desk with two people behind it. On the left, a younger boy with a mischievious grin on his face. \n" +
                 "You'd guess him to be around 16 years old. He's leaning forward, elbows resting on the mahogany counter \n" +
                 "as his chin rests on his hands. He appears blessed with a full head of brown curls, lively brown eyes \n" +
-                "and a face full of freckles. Yet his nose seems too large for his face, as if someone pasted it on afterwards." +
-                "\n\n" +
+                "and a face full of freckles. Yet his nose seems too large for his face, as if someone pasted it on afterwards\n\n" +
                 "On the right, an older woman, probably in her sixties, stares intensily at you with her sharp silver \n" +
                 "eyes from behind half-moon glasses. It's as if she's trying to look straight through you, reading your \n" +
                 "thoughts instead of your body language. Although you feel uncomfortable at first, she exudes an aura of \n" +
                 "hard-earned wisdom and a willingness to share it. Just like the boy, she has a full head of curly hair.\n" +
                 "Dark gray, tied together in a thick, messy bun. She gestures to herself and the boy as she speaks:\n" +
                 "\"Only one of us can help you today, do choose quickly if you will, we don't have all day.\"\n");
-        System.out.println("Do you choose to talk to the 1) young boy or 2) older woman?");
-        while (!isCorrectInput) {
-            userChoice = View.getInstance().getUserDecision();
-            if ((userChoice.equalsIgnoreCase("1")) || (userChoice.equalsIgnoreCase("young boy"))) {
-                youngBoy();
-                isCorrectInput = true;
-            } else if ((userChoice.equalsIgnoreCase("2")) || (userChoice.equalsIgnoreCase("older woman"))) {
-                olderWoman();
-                isCorrectInput = true;
-            } else {
-                System.out.println("Incorrect input. Try pressing 1 or 2.");
-            }
-        }
     }
 
     public void doNotEnterStore() {
@@ -74,7 +44,6 @@ public class PotionStoreAdventure {
         System.out.println("RESULT: YOU WALKED AWAY.");
         System.out.println("--------------------------------- GAME OVER ---------------------------------\n");
     }
-
 
     //PATH YOUNG BOY
     public void youngBoy(){
@@ -107,33 +76,14 @@ public class PotionStoreAdventure {
                 "these paintings, I highly recommend you see these. They're very special.\"\n\n" +
                 "Peter turns back to you, smiling again. \"One more thing. VERY IMPORTANT. You can only buy ONE item\n" +
                 "per visit here. I repeat, ONE item. So do choose carefully today. Now, what interests you, "+name+"?\"\n");
-        System.out.println("Do you ask to see the 1) Alchemy corner, 2) Antique collection, 3) Book section or 4) Gallery?");
-        while (!isCorrectInput) {
-            userChoice = View.getInstance().getUserDecision();
-            if ((userChoice.equalsIgnoreCase("1")) || (userChoice.equalsIgnoreCase("alchemy corner"))) {
-                youngBoyAlchemyCorner();
-                isCorrectInput = true;
-            } else if ((userChoice.equalsIgnoreCase("2")) || (userChoice.equalsIgnoreCase("antique collection"))) {
-                youngBoyAntiqueCollection();
-                isCorrectInput = true;
-            } else if ((userChoice.equalsIgnoreCase("3")) || (userChoice.equalsIgnoreCase("book section"))) {
-                youngBoyBookSection();
-                isCorrectInput = true;
-            } else if ((userChoice.equalsIgnoreCase("4")) || (userChoice.equalsIgnoreCase("gallery"))) {
-                youngBoyGallery();
-                isCorrectInput = true;
-            } else {
-                System.out.println("Incorrect input. Try pressing 1, 2, 3, or 4.");
-            }
-        }
     }
 
     public void youngBoyAlchemyCorner(){
         System.out.println("\n---------------------------- THE ALCHEMY CORNER ----------------------------");
         System.out.println("You look around in amazement at the multitude of colors and effects happening around you.\n" +
-                "Some potions jump from flask to flask, others seem to boil by themselves, and some even drip upwards,\n" +
+                "Some potions jump from flask to flask, others seem to boil by themselves, and a few even drip upwards,\n" +
                 "directly defying gravity.\n\n" +
-                "However, two things stand out to you here. Standing in the middle of the glass table, there's a large\n" +
+                "There are two things standing out to you here. At the middle of a glass table, there's a large\n" +
                 "potion bottle designed in the shape of a star, pointing upwards. It's golden liquid mimics rays of\n" +
                 "sunlight, flowing around inside, moving from one point of the star to the other. The label reads:\n" +
                 "Potion of Success: Excel at everything you do for 24 hours. WARNING: Can only be used once per human\n" +
@@ -141,29 +91,6 @@ public class PotionStoreAdventure {
                 "And in the cupboard on your left, a blue-ish glass flask has a miniature, heavy-looking cloud floating\n" +
                 "inside of it. This label reads: Potion of Rain. Throw at desired location for a 20 min downpour.\n" +
                 "Affected area: 1 square meter. Often used for showering at remote locations.\n");
-        System.out.println("Do you ask about the Potion of 1) Success, or the Potion of 2) Rain?");
-        System.out.println("Or do you want to move further to the 3) Antique collection, 4) Book section or 5) Gallery?");
-        while (!isCorrectInput) {
-            userChoice = View.getInstance().getUserDecision();
-            if ((userChoice.equalsIgnoreCase("1")) || (userChoice.equalsIgnoreCase("success"))) {
-                youngBoyPotionOfSuccess();
-                isCorrectInput = true;
-            } else if ((userChoice.equalsIgnoreCase("2")) || (userChoice.equalsIgnoreCase("rain"))) {
-                youngBoyPotionOfRain();
-                isCorrectInput = true;
-            } else if ((userChoice.equalsIgnoreCase("3")) || (userChoice.equalsIgnoreCase("antique collection"))) {
-                youngBoyAntiqueCollection();
-                isCorrectInput = true;
-            } else if ((userChoice.equalsIgnoreCase("4")) || (userChoice.equalsIgnoreCase("book section"))) {
-                youngBoyBookSection();
-                isCorrectInput = true;
-            } else if ((userChoice.equalsIgnoreCase("5")) || (userChoice.equalsIgnoreCase("gallery"))) {
-                youngBoyGallery();
-                isCorrectInput = true;
-            } else {
-                System.out.println("Incorrect input. Try pressing 1, 2, 3, 4, or 5.");
-            }
-        }
     }
 
     public void youngBoyPotionOfSuccess(){
@@ -178,19 +105,6 @@ public class PotionStoreAdventure {
                 "\"What does it cost?\" You ask, entertaining the idea. \n" +
                 "Peter smiles again, then shrugs. \"2000 swedish crowns, and a toenail.\"\n" +
                 "Upon seeing your look, Peter adds shushingly: \"Don't worry, your toenail will grow back.\"\n");
-        System.out.println("Do you 1) buy the potion, or return to the 2) Alchemy corner?");
-        while (!isCorrectInput) {
-            userChoice = View.getInstance().getUserDecision();
-            if ((userChoice.equalsIgnoreCase("1")) || (userChoice.equalsIgnoreCase("buy the potion"))) {
-                youngBoyPotionOfSuccessBuy();
-                isCorrectInput = true;
-            } else if ((userChoice.equalsIgnoreCase("2")) || (userChoice.equalsIgnoreCase("alchemy corner"))) {
-                youngBoyAlchemyCorner();
-                isCorrectInput = true;
-            } else {
-                System.out.println("Incorrect input. Try pressing 1 or 2.");
-            }
-        }
     }
 
     public void youngBoyPotionOfSuccessBuy() {
@@ -220,28 +134,14 @@ public class PotionStoreAdventure {
     }
 
     public void youngBoyPotionOfRain(){
-        System.out.println("\nPeter gestures for you to pick up the bottle yourself, and you carefully grab the bottle in\n" +
-                "the middle, not wanting to drop it. It feels cold, and slightly damp. The cloud inside shifts in\n" +
+        System.out.println("\nPeter gestures for you to pick up the bottle yourself, and you do so carefully,\n" +
+                "not wanting to drop it. It feels cold and slightly damp. The cloud inside shifts in\n" +
                 "accordance with your movement as you hold it up in front of you, admiring the magic of it. \n\n" +
-                "\"A nice choice, for sure.\" Peter states, crossing his arms as he watches you. \"It's one of\n" +
-                "the safer choices, good for a -mere beginning- magic user, I'd say.\" You wonder if his tone of\n" +
-                "voice was meant to be insulting, but you let it slide and inquire about the price.\n\n" +
-                "Peter straightens up and runs a hand through his curls. \"This one's 600 swedish crowns and a single\n" +
-                "strand of hair.\"\n" +
+                "\"A nice choice, for sure.\" Peter nods, crossing his arms as he watches you. \"It's one of\n" +
+                "the safer choices, good for a -mere beginning- magic user, I'd say.\" You can't help but wonder\n" +
+                "if his tone of voice was meant to be insulting, but you let it slide and inquire about the price.\n\n" +
+                "Peter straightens up. \"This one's 600 swedish crowns and a single strand of hair.\"\n" +
                 "You raise your eyebrow at him and asks if he's joking. He shrugs, then smiles: \"It's a bargain.\"\n");
-        System.out.println("Do you 1) buy the potion, or return to the 2) Alchemy corner?");
-        while (!isCorrectInput) {
-            userChoice = View.getInstance().getUserDecision();
-            if ((userChoice.equalsIgnoreCase("1")) || (userChoice.equalsIgnoreCase("buy the potion"))) {
-                youngBoyPotionOfRainBuy();
-                isCorrectInput = true;
-            } else if ((userChoice.equalsIgnoreCase("2")) || (userChoice.equalsIgnoreCase("alchemy corner"))) {
-                youngBoyAlchemyCorner();
-                isCorrectInput = true;
-            } else {
-                System.out.println("Incorrect input. Try pressing 1 or 2.");
-            }
-        }
     }
 
     public void youngBoyPotionOfRainBuy(){
@@ -292,5 +192,5 @@ public class PotionStoreAdventure {
         System.out.println("To be continued.");
     } //TODO
 
-}
 
+}

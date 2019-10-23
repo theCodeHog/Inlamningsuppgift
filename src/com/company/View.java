@@ -10,7 +10,8 @@ public class View {
     public enum MenuItem {
         MANAGE_POTIONS("Manage your personal potions."),
         EXPLORE_POTION_STORE("Explore the Potion Store."),
-        POTION_QUIZ("Quiz: What potion is best for you?"),
+        SCROLL_QUIZ("Quiz: What scroll should you buy?"),
+        SHOW_ALL_SCROLLS("Show all existing scrolls."),
         QUIT("Quit the program."),
         ;
 
@@ -62,8 +63,11 @@ public class View {
         }
         int userChoice;
         do {
-            userChoice = FileUtils.askUserToEnterInteger();
-        } while ((userChoice > MenuItem.values().length-1) || (userChoice < 1) );
+            userChoice = askUserToEnterInteger();
+            if ((userChoice > MenuItem.values().length) || (userChoice < 1)){
+                System.out.println("Incorrect input. Please enter one of the numbers shown above.");
+            }
+        } while ((userChoice > MenuItem.values().length) || (userChoice < 1));
 
         return MenuItem.values()[userChoice - 1]; //We add -1 because MenuItem 1 is located in place 0.
     }
@@ -76,7 +80,13 @@ public class View {
             subMenuNumber++;
         }
 
-        int userChoice = FileUtils.askUserToEnterInteger();
+        int userChoice;
+        do {
+            userChoice = askUserToEnterInteger();
+            if ((userChoice > SubMenuItem.values().length) || (userChoice < 1)){
+                System.out.println("Incorrect input. Please enter one of the numbers shown above.");
+            }
+        } while ((userChoice > SubMenuItem.values().length) || (userChoice < 1));
         return SubMenuItem.values()[userChoice - 1]; //We add -1 because SubMenuItem 1 is located in place 0.
     }
 
@@ -86,30 +96,53 @@ public class View {
         System.out.println("Describe the potion:");
         String potionDescription = input.nextLine();
         System.out.println("Enter the price of the potion:");
-        int potionPrice = Integer.parseInt(input.nextLine());
+        double potionPrice = askUserToEnterDouble();
         return new Potion(potionName, potionDescription, potionPrice);
     }
 
     public int askUserWhatAmountOfPotionsToRemove() {
         System.out.println("How many potions would you like to remove?");
-        int amountOfPotionsToRemove = FileUtils.askUserToEnterInteger();
-        return amountOfPotionsToRemove;
+        return askUserToEnterInteger();
     }
 
     public String askUserWhatPotionToRemove(){
         System.out.println("Write the name of the potion you'd like to remove:");
-        String potionName = input.nextLine();
-        return potionName;
+        return input.nextLine();
     }
 
-    public void potionQuiz(){
+    public void scrollsQuiz(){
 
     }
 
+    //Only used to get userInput in the MagicStoreAdventure Class
     public String getUserDecision(){
-        String userDecision = input.nextLine();
-        return userDecision;
+        return input.nextLine();
     }
 
+    public int askUserToEnterInteger(){
+        int userInt;
+        while (true){
+            try{
+                userInt = Integer.parseInt(input.nextLine());
+                return userInt;
+            }
+            catch (Exception e){
+                System.out.println("Incorrect input. Try again.");
+            }
+        }
+    }
+
+    public double askUserToEnterDouble(){
+        double userDouble;
+        while (true){
+            try{
+                userDouble = Double.parseDouble(input.nextLine());
+                return userDouble;
+            }
+            catch (Exception e){
+                System.out.println("Incorrect input (Remember: Comma's don't work in the console, use a \".\" for decimals instead).");
+            }
+        }
+    }
 
 }
