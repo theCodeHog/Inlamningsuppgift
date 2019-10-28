@@ -1,7 +1,5 @@
 package com.company;
 
-import org.w3c.dom.ls.LSOutput;
-
 import java.util.Scanner;
 
 public class View {
@@ -12,7 +10,8 @@ public class View {
         EXPLORE_POTION_STORE("Explore the Potion Store."),
         SCROLL_QUIZ("Quiz: What scroll should you buy?"),
         SHOW_ALL_SCROLLS("Show all existing scrolls."),
-        QUIT("Quit the program."),
+        HELP("Help & Troubleshooting."),
+        QUIT("Exit the program."),
         ;
 
         private String description;
@@ -22,12 +21,13 @@ public class View {
         }
     }
     public enum SubMenuItem {
-        ADD_POTIONS("Add potions."),
+        ADD_POTION("Add a potion."),
+        SHOW_ONE_POTION("Show a specific potion."),
         SHOW_ALL_POTIONS("Show the current list of potions."),
         SORT_POTIONS_BY_NAME("Sort your potions by name."),
         SORT_POTIONS_BY_PRICE("Sort your potions by price."),
         SAVE_POTIONS("Save the current list of potions."),
-        REMOVE_POTIONS("Remove potions from the list."),
+        REMOVE_POTION("Remove a potion from the list."),
         EXIT("Return to the Main Menu.");
 
         private String description;
@@ -100,13 +100,13 @@ public class View {
         return new Potion(potionName, potionDescription, potionPrice);
     }
 
-    public int askUserWhatAmountOfPotionsToRemove() {
-        System.out.println("How many potions would you like to remove?");
-        return askUserToEnterInteger();
-    }
-
     public String askUserWhatPotionToRemove(){
         System.out.println("Write the name of the potion you'd like to remove:");
+        return input.nextLine();
+    }
+
+    public String askUserWhatPotionToShow(){
+        System.out.println("Write the name of the potion you'd like to see:");
         return input.nextLine();
     }
 

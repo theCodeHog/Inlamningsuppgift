@@ -8,12 +8,12 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
-public class FileUtils {
-
-    //FIELDS ----------------------------------------------------------------
-    public static Scanner scanner = new Scanner(System.in);
+/**
+ * <h2>File Utilities</h2>
+ * Contains static methods that are used to read and save files in the Magic Store Program.
+ */
+public interface FileUtils {
 
     //METHODS ----------------------------------------------------------------
 

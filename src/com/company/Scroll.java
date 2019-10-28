@@ -1,6 +1,6 @@
 package com.company;
 
-import java.util.Scanner;
+import java.io.Serializable;
 
 public class Scroll extends ItemForSale {
 
@@ -28,9 +28,14 @@ public class Scroll extends ItemForSale {
 
     @Override
     public String toString() {
-        return "\nScroll Name: " + getName() +
+        return "\nName: " + getName() +
                 "\nDescription: " + getDescription() +
                 "\nPrice: " + getPrice() +
                 "\n";
+    }
+
+    @Override
+    public void showTypeOfItem() {
+        System.out.println("Type of item: Scroll");
     }
 }

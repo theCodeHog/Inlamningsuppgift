@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Potion extends ItemForSale implements Comparable<Potion> {
 
-    enum SortBy {
+    public enum SortBy {
         NAME,
         PRICE,
     }
@@ -37,10 +37,15 @@ public class Potion extends ItemForSale implements Comparable<Potion> {
 
     @Override
     public String toString() {
-        return "\nPotion Name: " + getName() +
+        return "\nName: " + getName() +
                 "\nDescription: " + getDescription() +
                 "\nPrice: " + getPrice() +
                 "\n";
+    }
+
+    @Override
+    public void showTypeOfItem() {
+        System.out.println("Type of item: Potion");
     }
 
     static void setSortBy(SortBy sortBy) {

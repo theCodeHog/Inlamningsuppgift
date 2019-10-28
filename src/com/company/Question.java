@@ -1,7 +1,6 @@
 package com.company;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 public class Question implements Serializable {
 

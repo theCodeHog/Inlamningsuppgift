@@ -17,4 +17,4 @@ public class MagicStoreProgramTest {
 
         assertEquals(amountOfPotions+1, potionsProgram.potions.size());
     }
-}
+}   
