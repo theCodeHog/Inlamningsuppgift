@@ -1,8 +1,5 @@
 package com.company;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-
 public class Potion extends ItemForSale implements Comparable<Potion> {
 
     public enum SortBy {
@@ -14,33 +11,15 @@ public class Potion extends ItemForSale implements Comparable<Potion> {
     private static SortBy sortBy = SortBy.NAME;
 
     //CONSTRUCTOR
-    Potion(String name, String description, double price) {
+    public Potion(String name, String description, double price) {
         super(name, description, price);
     }
 
     //METHODS ----------------------------------------------------------------
 
     @Override
-    public String getName() {
-        return super.getName();
-    }
-
-    @Override
-    public String getDescription() {
-        return super.getDescription();
-    }
-
-    @Override
-    public double getPrice() {
-        return super.getPrice();
-    }
-
-    @Override
     public String toString() {
-        return "\nName: " + getName() +
-                "\nDescription: " + getDescription() +
-                "\nPrice: " + getPrice() +
-                "\n";
+        return String.format("\nName: %s \nDescription: %s \nPrice: %.2f \n", getName(), getDescription(), getPrice());
     }
 
     @Override

@@ -39,7 +39,7 @@ public class View {
 
     //FIELDS
     private static View instance = null;
-    Scanner input = new Scanner(System.in);
+    private Scanner input = new Scanner(System.in);
 
     //CONSTRUCTOR - It's private so no one can get at it!
     private View() {}
@@ -108,10 +108,6 @@ public class View {
     public String askUserWhatPotionToShow(){
         System.out.println("Write the name of the potion you'd like to see:");
         return input.nextLine();
-    }
-
-    public void scrollsQuiz(){
-
     }
 
     //Only used to get userInput in the MagicStoreAdventure Class

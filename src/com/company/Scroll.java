@@ -12,26 +12,8 @@ public class Scroll extends ItemForSale {
     //METHODS ----------------------------------------------------------------
 
     @Override
-    public String getName() {
-        return super.getName();
-    }
-
-    @Override
-    public String getDescription() {
-        return super.getDescription();
-    }
-
-    @Override
-    public double getPrice() {
-        return super.getPrice();
-    }
-
-    @Override
     public String toString() {
-        return "\nName: " + getName() +
-                "\nDescription: " + getDescription() +
-                "\nPrice: " + getPrice() +
-                "\n";
+        return String.format("\nName: %s \nDescription: %s \nPrice: %.2f \n", getName(), getDescription(), getPrice());
     }
 
     @Override

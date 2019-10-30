@@ -30,7 +30,6 @@ public class MagicStoreProgram {
      * potions is available. If not, it loads the game/program with
      * a general set of potions.
      */
-
     //CONSTRUCTOR
     public MagicStoreProgram() {
         if (Files.exists(Paths.get("potions.ser"))) {
@@ -38,12 +37,17 @@ public class MagicStoreProgram {
             System.out.println("Starting the program with your latest list of Potions.\n");
         } else {
             potions = new ArrayList<>();
-            ArrayList<String> standardPotions = (ArrayList<String>) FileUtils.readAllLines("listOfStandardPotions.txt");
-            for (String standardPotion : standardPotions) {
-                String[] temp = standardPotion.split(";");
-                potions.add(new Potion(temp[0], temp[1], Double.parseDouble(temp[2])));
+            try {
+                ArrayList<String> standardPotions = (ArrayList<String>) FileUtils.readAllLines("listOfStandardPotions.txt");
+                for (String standardPotion : standardPotions) {
+                    String[] temp = standardPotion.split(";");
+                    potions.add(new Potion(temp[0], temp[1], Double.parseDouble(temp[2])));
+                }
+                System.out.println("Starting the program with 10 standard potions in your list.\n");
             }
-            System.out.println("Starting the program with 10 standard potions in your list.\n");
+            catch (Exception e){
+                System.out.println("An error occurred: "+e);
+            }
         }
     }
 
@@ -116,7 +120,7 @@ public class MagicStoreProgram {
                     saveCurrentPotionsList();
                     break;
                 case REMOVE_POTION:
-                    removePotions();
+                    removePotion();
                     break;
                 case EXIT:
                     isSubMenuRunning = false;
@@ -132,7 +136,6 @@ public class MagicStoreProgram {
         magicStoreAdventure.startAdventure();
     } //TODO: WIP
 
-
     /**
      * Extra: A Quiz that checks what scroll you should buy based on your personality.
      */
@@ -144,7 +147,6 @@ public class MagicStoreProgram {
      * Shows all scrolls that one could get as a result from the Quiz.
      */
     public void showAllScrolls() {
-        //if scrolls = empty do this....
         scrolls = new ArrayList<>();
         try {
             ArrayList<String> standardScrolls = (ArrayList<String>) FileUtils.readAllLines("scrolls.txt");
@@ -153,10 +155,10 @@ public class MagicStoreProgram {
                 scrolls.add(new Scroll(temp[0], temp[1], Double.parseDouble(temp[2])));
             }
         } catch (Exception e) {
-            System.out.println(scrolls.toString().replace("[", "").replace("]", "").replace(",", "-"));
+            System.out.println("Error occurred. " + e);
         }
-        //else just print the scrolls arrayList.
-    } //TODO: Add try catch here in case the file can't be found and add the else-if sats.
+        System.out.println(scrolls.toString().replace("[", "").replace("]", "").replace(",", "."));
+    }
 
     /**
      * This is where the help menu would be located. (Currently the help menu is not much help).
@@ -167,7 +169,7 @@ public class MagicStoreProgram {
 
 
     //SUBMENU METHODS
-    
+
     /**
      * Add a potion to the list potions.
      */
@@ -203,7 +205,7 @@ public class MagicStoreProgram {
      * Shows all potions with all their details from the list potions.
      */
     public void showAllPotions() {
-        System.out.println(potions.toString().replace("[", "").replace("]", "").replace(",", "-"));
+        System.out.println(potions.toString().replace("[", "").replace("]", "").replace(",", "."));
     }
 
     /**
@@ -242,7 +244,7 @@ public class MagicStoreProgram {
     /**
      * Removes a chosen potion from the list potions.
      */
-    public void removePotions() {
+    public void removePotion() {
 
         //Showing list of current potion names first.
         System.out.println("Current potions:");

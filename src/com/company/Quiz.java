@@ -1,7 +1,5 @@
 package com.company;
 
-import jdk.swing.interop.SwingInterOpUtils;
-
 import java.util.Arrays;
 
 public class Quiz {
@@ -9,6 +7,10 @@ public class Quiz {
     //FIELDS
     private Question[] questions;
     private int[] userResults = new int[8];
+    private int amountOf1 = 0;
+    private int amountOf2 = 0;
+    private int amountOf3 = 0;
+    private int amountOf4 = 0;
 
     //CONSTRUCTOR
     public Quiz(){
@@ -18,14 +20,28 @@ public class Quiz {
     //METHODS
 
     public void runWhatScrollIsBestForYouQuiz(){
+
+        amountOf1 = 0;
+        amountOf2 = 0;
+        amountOf3 = 0;
+        amountOf4 = 0;
+
         loadScrollQuizQuestions();
-        int userQuestionResult = 0;
+        int userQuestionResult = 0; //represents array index.
 
         for (Question question : questions) {
             System.out.println("\n" + question.getQuestion());
             System.out.println(Arrays.toString(question.getAnswers()).replace("["," ").replace("]","").replace(",","\n"));
             System.out.println("(Choose from 1-4 and press enter)");
-            int userChoice = View.getInstance().askUserToEnterInteger();
+
+            int userChoice = 0;
+            do {
+                userChoice = View.getInstance().askUserToEnterInteger();
+                if (userChoice < 1 || userChoice > 4){
+                    System.out.println("You can only choose between 1-4.");
+                }
+            } while (userChoice < 1 || userChoice > 4);
+
             userResults[userQuestionResult] = userChoice;
             userQuestionResult++;
         }
@@ -88,10 +104,6 @@ public class Quiz {
     }
 
     private int calculateResults(){
-        int amountOf1 = 0;
-        int amountOf2 = 0;
-        int amountOf3 = 0;
-        int amountOf4 = 0;
 
         for (int userResult : userResults) {
             if (userResult == 1) {
@@ -111,8 +123,10 @@ public class Quiz {
             return 2;
         } else if (amountOf3 > amountOf1 && amountOf3 > amountOf2 && amountOf3 > amountOf4){
             return 3;
-        } else {
+        } else if (amountOf4 > amountOf1 && amountOf4 > amountOf2 && amountOf4 > amountOf3){
             return 4;
+        } else {
+            return 0;
         }
     }
 
@@ -138,7 +152,7 @@ public class Quiz {
                     "friendly. You dislike small talk, but enjoy deep and meaningful conversations instead.\n" +
                     "You would rather be alone than in the company of shallow, superficial people.\n" +
                     "Ideally, you want to spend your precious time with people who have similar professional interests.\n");
-            System.out.println("You should buy the scroll of Relaxation OR Compassion. Seriously, ease up. \n");
+            System.out.println("You should buy the scroll of Relaxation. Seriously, ease up. \n");
         }else if (result == 4){
             System.out.println("You are likely very traditional! You love your family and friends and probably don't\n" +
                     "look for novelty and adventure. Even more so, I expect you avoid it as much as you can. You are\n" +
@@ -146,6 +160,13 @@ public class Quiz {
                     "very social and seek to contribute to the community around you. Being extremely thorough and\n" +
                     "accurate, you make an excellent manager!");
             System.out.println("You should buy the scroll of Spontaneity. Stop overthinking and start doing!\n");
+        } else if (result == 0){
+            System.out.println("You have a balance to you. Your results are as follows: " +
+                    "\nScroll of Discipline: "+ amountOf1 +" point(s)." +
+                    "\nScroll of Self Confidence: "+ amountOf2 +" point(s)." +
+                    "\nScroll of Relaxation: "+ amountOf3 +" point(s)." +
+                    "\nScroll of Spontaneity: "+ amountOf4 +" point(s)." +
+                    "\nRecommendation: Have a look at all available scrolls and make your own choice!\n");
         }
     }
 }
